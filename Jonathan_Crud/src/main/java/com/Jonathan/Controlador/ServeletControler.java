@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import com.Jonathan.Dao.ClienteDao;
+import com.google.gson.Gson;
+
 import com_Jonathan_model.Cliente;
 
 /**
@@ -33,102 +37,100 @@ public class ServeletControler extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Cliente c= new Cliente();
+		ClienteDao cli = new ClienteDao();
 		
+		String id=null;
+		String nombre=null;
+		String apellido=null;
+		String edad=null;
+		String direcion=null;
+		String dui=null;
+		String nit=null;
+		String grupoDeClaseProgramacion3Alquepertenece=null;
+		String ultimaNotaObtenidaEnProgramacion2=null;
 		
-	
+		try {
+			
+		
+		 id= request.getParameter("Id");
+		 nombre= request.getParameter("Nombre");
+         apellido= request.getParameter("Apellido");
+		 edad= request.getParameter("Edad");
+		 direcion= request.getParameter("Direcion");
+		 dui= request.getParameter("Dui");
+		 nit= request.getParameter("Nit");
+		 grupoDeClaseProgramacion3Alquepertenece= request.getParameter("grupoDeClaseProgramacion3Alquepertenece");
+         ultimaNotaObtenidaEnProgramacion2= request.getParameter("ultimaNotaObtenidaEnProgramacion2");
+         
+         c.setId(Integer.parseInt(id));
+ 		c.setNombre(nombre);
+ 		c.setApellido(apellido);
+ 		c.setEdad(Integer.parseInt(edad));
+ 		c.setDireccion(direcion);
+ 		c.setDui(dui);
+ 		c.setNit(nit);
+ 		c.setGrupoDeClaseProgramacion3Alquepertenece(Integer.parseInt(grupoDeClaseProgramacion3Alquepertenece));
+ 		c.setUltimaNotaObtenidaEnProgramacion2(Double.parseDouble(ultimaNotaObtenidaEnProgramacion2));
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		String acction= request.getParameter("btn");
+		
+		if(acction.equals("Guardar")) {
+			
+		c.setId(Integer.parseInt(id));
+		c.setNombre(nombre);
+		c.setApellido(apellido);
+		c.setEdad(Integer.parseInt(edad));
+		c.setDireccion(direcion);
+		c.setDui(dui);
+		c.setNit(nit);
+		c.setGrupoDeClaseProgramacion3Alquepertenece(Integer.parseInt(grupoDeClaseProgramacion3Alquepertenece));
+		c.setUltimaNotaObtenidaEnProgramacion2(Double.parseDouble(ultimaNotaObtenidaEnProgramacion2));
+		cli.agregarD(c);
+		}
+		else if(acction.equals("Actualizar")) {
+		c.setId(Integer.parseInt(id));
+		c.setNombre(nombre);
+		c.setApellido(apellido);
+		c.setEdad(Integer.parseInt(edad));
+		c.setDireccion(direcion);
+		c.setDui(dui);
+		c.setNit(nit);
+		c.setGrupoDeClaseProgramacion3Alquepertenece(Integer.parseInt(grupoDeClaseProgramacion3Alquepertenece));
+		c.setUltimaNotaObtenidaEnProgramacion2(Double.parseDouble(ultimaNotaObtenidaEnProgramacion2));
+		
+
+		
+		cli.Actualizar(c);
+		}
+		
+		else if(acction.equals("ELIMINAR")) {
+			c.setId(Integer.parseInt(id));
+			cli.EliminarD(c);
+			
+		}
+			response.sendRedirect("index.jsp");
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 doGet(request, response);
-		String acction= request.getParameter("btn");
-		Cliente c= new Cliente();
-		EntityManager em;
-		
-		EntityManagerFactory emf;
-		emf= Persistence.createEntityManagerFactory("Jonathan_Crud");
-		em= emf.createEntityManager();
-		
-		try {
-		
-		String id= request.getParameter("Id");
-		String nombre= request.getParameter("Nombre");
-		String apellido= request.getParameter("Apellido");
-		String edad= request.getParameter("Edad");
-		String Direcion= request.getParameter("Direcion");
-		String dui= request.getParameter("Dui");
-		String nit= request.getParameter("Nit");
-		String grupoDeClaseProgramacion3Alquepertenece= request.getParameter("grupoDeClaseProgramacion3Alquepertenece");
-		String ultimaNotaObtenidaEnProgramacion2= request.getParameter("ultimaNotaObtenidaEnProgramacion2");
-		
-		
-		c.setId(Integer.parseInt(id));
-		c.setNombre(nombre);
-		c.setApellido(apellido);
-		c.setEdad(Integer.parseInt(edad));
-		c.setDireccion(Direcion);
-		c.setDui(dui);
-		c.setNit(nit);
-		c.setGrupoDeClaseProgramacion3Alquepertenece(Integer.parseInt(grupoDeClaseProgramacion3Alquepertenece));
-		c.setUltimaNotaObtenidaEnProgramacion2(Double.parseDouble(ultimaNotaObtenidaEnProgramacion2));
-		
-		
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-		if(acction.equals("Agregar")) {
 	
 		
-			em.getTransaction().begin();
-		//insertar nuevos clientes
-			em.persist(c);
-		
-			em.flush();
-		
-			em.getTransaction().commit();
-		
-	
-		
-		
-		}else if (acction.equals("actualizar")){
-		
-			
-				em.getTransaction().begin();
-			
-			//editar clientes insertados anteriormente 
-				em.merge(c);
-				
-				em.flush();
-			
-				em.getTransaction().commit();
-			
-		
-			
-		}else if (acction.equals("Eliminar")){
-		
-		
-		
-			em.getTransaction().begin();
-		
-			// eliminar inserciones
-			
-			c= em.getReference(Cliente.class,c.getId());
-			em.getTransaction().begin();
-			em.remove(c);
-			
-			em.flush();
-		
-			em.getTransaction().commit();
-		
-		
-		
-	}
-		response.sendRedirect("index.jsp");
-		}
-		
+ClienteDao clien=new ClienteDao();
 
+Gson json= new Gson();
+try {
+	response.getWriter().append(json.toJson(clien.clienteLista()));
+} catch (Exception e) {
+	// TODO: handle exception
+	System.out.println(e);
+	
+}
+}
 }
