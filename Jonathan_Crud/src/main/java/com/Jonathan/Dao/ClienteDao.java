@@ -24,7 +24,7 @@ public List<Cliente> clienteLista(){
  
 } catch (Exception e) {
 	// TODO: handle exception
-System.out.println(e);
+System.out.println("saludos"+e);
 }
 return listaCl;
 }
