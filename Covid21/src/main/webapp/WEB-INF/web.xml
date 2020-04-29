@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ServeletCovid</servlet-name>
+  	<display-name>ServeletCovid</display-name>
+  	<description></description>
+  	<servlet-class>com.Controlador.ServeletCovid</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServeletAdmin</servlet-name>
+  	<display-name>ServeletAdmin</display-name>
+  	<description></description>
+  	<servlet-class>com.Controlador.ServeletAdmin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServeletTabla</servlet-name>
+  	<display-name>ServeletTabla</display-name>
+  	<description></description>
+  	<servlet-class>com.Controlador.ServeletTabla</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServeletCovid</servlet-name>
+  	<url-pattern>/ServeletCovid</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServeletAdmin</servlet-name>
+  	<url-pattern>/ServeletAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServeletTabla</servlet-name>
+  	<url-pattern>/ServeletTabla</url-pattern>
+  </servlet-mapping>
 </web-app>
