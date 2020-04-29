@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Bienvenido Ingeniero</title>
+<title>Bienvenido Ingeniero< William/title>
 </head>
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.js">
