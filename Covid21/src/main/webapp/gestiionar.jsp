@@ -86,7 +86,7 @@ if(idBus==null){
         </div>
     </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <h1 align="center"class="text-secondary">Gestion de Duis</h1>
