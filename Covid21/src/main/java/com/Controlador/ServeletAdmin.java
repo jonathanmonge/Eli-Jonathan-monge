@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.websocket.MessageHandlerResult;
+
 import com.Covid.Dao.covid_administradorDao;
 import com.Covid.Model.RAdministrador;
 
@@ -53,10 +55,11 @@ public class ServeletAdmin extends HttpServlet {
 		if (verificarU==1) {
 			
 			System.out.println("Bienvenido homie " + us);
-			response.sendRedirect("gestionar.jsp");
+			response.sendRedirect("gestiionar.jsp");
+			
 		}else {
 			System.out.println("Usuario o contrasenia incorrecta homie");
-			
+			response.sendRedirect("login.jsp");
 		}
 	}
 

@@ -6,7 +6,7 @@
 <script src="http://code.jquery.com/jquery-latest.js">
 </script>
 <script type="text/javascript">
-	$(document).click(function (event) {			
+	$(document).click(function (){			
       var btn=$('#carga').val();
  $.post('ServeletHistory',{
 

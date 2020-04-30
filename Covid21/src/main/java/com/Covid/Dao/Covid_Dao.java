@@ -25,7 +25,7 @@ public class Covid_Dao {
 		try {
 			
 	 em.getTransaction().begin();
-	 listaUsser=em.createQuery("FROM  RDui r where r.numero_Dui='"+usu.getNumero_Dui()+"'").getResultList();
+	 listaUsser=em.createQuery("from RDui as r where r.numero_Dui='"+usu.getNumero_Dui()+"'").getResultList();
 	 
 	 
 	 em.getTransaction().commit();

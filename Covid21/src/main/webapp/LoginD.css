@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("https://media.metrolatam.com/2020/04/13/distanciamientos-f0a4be0c4e5813d499452041bf535918-1200x800.jpg") no-repeat center top;
+    /* Aca no requerimos que se repita y que se encuentre centrada con respecto al tamaño del dispositivo */
+    background-size: cover;
+    font-family: sans-serif;
+    height: 90vh;
+    /* hace referencia a que la imagen que estamso ocupando este al 100% de la pantalla del dispositivo */
+}
+
+.login-boxi {
+    width: 400px;
+    height: 400px;
+    background: #000;
+    opacity: 80%;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.login-boxi .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.login-boxi label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.login-boxi h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-boxi input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-boxi input[type="text"],
+.login-boxi input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+.login-boxi input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #0ef3e0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.login-boxi input[type="submit"]:hover {
+    background-color: #e2d628;
+}
+
+.login-boxi a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.login-boxi a:hover {
+    color: #fff;
+}
+
+h3 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+
+}

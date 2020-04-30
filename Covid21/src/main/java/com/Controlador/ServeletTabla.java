@@ -61,7 +61,7 @@ TablaDao tdao = new TablaDao();
 		}
 		String acction= request.getParameter("btn");
 		
-		if(acction.equals("Guardar")) {
+		if(acction.equals("GUARDAR")) {
 			
 		c.setIdUsuarios(Integer.parseInt(id));
 		c.setNombre(nombre);
@@ -69,7 +69,7 @@ TablaDao tdao = new TablaDao();
 		c.setNumero_Dui(numero_Dui);
 		tdao.agregarD(c);
 		}
-		else if(acction.equals("Actualizar")) {
+		else if(acction.equals("GUARDAR_ACTUALIZACION")) {
 			c.setIdUsuarios(Integer.parseInt(id));
 			c.setNombre(nombre);
 			c.setApellido(apellido);
@@ -81,9 +81,9 @@ TablaDao tdao = new TablaDao();
 		else if(acction.equals("ELIMINAR")) {
 			c.setIdUsuarios(Integer.parseInt(id));
 			tdao.EliminarD(c);
-			
+				
 		}
-			response.sendRedirect("index.jsp");
+		response.sendRedirect("gestiionar.jsp");	
 	}
 	
 

@@ -45,18 +45,20 @@ public class ServeletCovid extends HttpServlet {
 		RDui ru=new RDui();
 		
 		Covid_Dao c = new Covid_Dao();
-		ru.setNumero_Dui(us);
+	ru.setNumero_Dui(us);
 		
 		
-		int	verificarU= c.VerficarDui(ru).size();
+		
+	int	verificarU= c.VerficarDui(ru).size();
 		if (verificarU==1) {
 			
 			System.out.println("Usted es Deneficiario del bono de  $300");
+			response.sendRedirect("Beneficiado.jsp");	
 		}else {
 			System.out.println("Usted se quedo con hambre ");
-			
+			response.sendRedirect("Erro.jsp");	
 		}
-		response.sendRedirect("index.jsp");
+		
 	}
 
 }

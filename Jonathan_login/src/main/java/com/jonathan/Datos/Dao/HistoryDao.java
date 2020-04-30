@@ -22,7 +22,7 @@ public class HistoryDao {
 		try {
 			
 	 em.getTransaction().begin();
-	 listaCl=em.createQuery("select from TbHistorial").getResultList();
+	 listaCl=em.createNativeQuery("select *from TbHistorial").getResultList();
 	 
 	 em.getTransaction().commit();
 	 
