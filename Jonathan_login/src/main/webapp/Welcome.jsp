@@ -1,54 +1,26 @@
 <html>
+<link rel="stylesheet" type="text/css"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <head>
 <title>Bienvenido Ingeniero< William</title>
 </head>
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-latest.js">
-</script>
-<script type="text/javascript">
-	$(document).click(function (){			
-      var btn=$('#carga').val();
- $.post('ServeletHistory',{
 
- },function(respose){
- let datos= JSON.parse(respose);
-// console.log(datos);
-var tabladato=document.getElementById('tablaDatos');
-for(let item of datos){
-	tabladato.innerHTML += `
-		<tr>
-		<td>${item.idHistorial}</td>
-		<td>${item.RUsuario}</td>
-		<td>${item.fecha}</td>
-		</tr>
-		`	
-		}
-	});
-		});
+<%
+HttpSession seccion= (HttpSession) request.getSession();
+String usuariovariabledeseccion=(String)seccion.getAttribute("usuario");
+if(usuariovariabledeseccion==null){
+	response.sendRedirect("index.jsp");
+	
+	
+}
+%>
+<body background="https://s1.eestatic.com/2018/04/06/actualidad/Actualidad_297735561_130169526_1706x960.jpg">
 
-		</script>
-<body>
-<table align="center">
-<thead></thead>
-<tbody>
-<tr>
-<td>
 
-<h1 align= "center">Registro de Ingresos</h1>
-<input type="submit" name="btn" value="carga"id="carga">
-<td>
-</td>
-</tbody>
-</table>
-<table class="table table-dark" id="tablaDatos">
-	<thead>
-		
-		<th>IdHistorial</th>
-		<th>Usuario</th>
-		<th>fechas</th>
-	</thead>
-	<tbody>
-		
-	</tbody>
-</table>
+<form action="Servelet_Usuarios" method="post">
+<h1 align ="center">Felicidades te has logeado correctamente eres un crack </h1>
+<input type="submit" value="cerrar" class="btn btn-success"name ="btn">
+<a href="Historial.jsp" class="btn btn-dark">ver Historial</a>
+</form>
+</body>
 </html>

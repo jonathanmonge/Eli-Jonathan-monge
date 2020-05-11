@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.jonathan.controler.ServeletHistory</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServeletEliminarH</servlet-name>
+  	<display-name>ServeletEliminarH</display-name>
+  	<description></description>
+  	<servlet-class>com.jonathan.controler.ServeletEliminarH</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Servelet_Usuarios</servlet-name>
   	<url-pattern>/Servelet_Usuarios</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>ServeletHistory</servlet-name>
   	<url-pattern>/ServeletHistory</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServeletEliminarH</servlet-name>
+  	<url-pattern>/ServeletEliminarH</url-pattern>
   </servlet-mapping>
 </web-app>

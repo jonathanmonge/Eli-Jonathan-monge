@@ -2,7 +2,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +23,7 @@
 		<div class="card">
 			<div class="card-header">
 				<h3 align="center">Iniciar Secion</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
+
 			</div>
 			<div class="card-body">
 				<form>
@@ -47,7 +43,7 @@
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recordar mi contraseña</div>
 					<div class="form-group">
-						<input type="submit" value="Entrar" class="btn float-right login_btn">
+						<input align ="center" type="submit" value="Entrar" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>

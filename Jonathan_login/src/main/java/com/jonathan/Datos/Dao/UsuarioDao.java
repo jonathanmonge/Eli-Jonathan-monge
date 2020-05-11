@@ -28,6 +28,10 @@ public List<RUsuario> RE_Usuarios(RUsuario usu){
  
  
  em.getTransaction().commit();
+ for(RUsuario dato:listaUsser) {
+	 
+usu.setIdUsuarios(dato.getIdUsuarios());
+ }
  
 } catch (Exception e) {
 	// TODO: handle exception

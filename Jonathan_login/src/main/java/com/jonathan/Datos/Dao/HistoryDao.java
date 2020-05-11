@@ -10,10 +10,12 @@ import javax.persistence.Persistence;
 import com.jonathan.model.TbHistorial;
 
 
+
+
 public class HistoryDao {
-	public List<TbHistorial> ListaHistorial(){
+	public List<Object> ListaHistorial(){
 		
-		List<TbHistorial> listaCl = new ArrayList<>();
+		List<Object> listah= new ArrayList<>();
 		EntityManager em;
 		EntityManagerFactory emf;
 		
@@ -22,7 +24,10 @@ public class HistoryDao {
 		try {
 			
 	 em.getTransaction().begin();
-	 listaCl=em.createNativeQuery("select *from TbHistorial").getResultList();
+	 listah=em.createQuery("SELECT t.idHistorial,t.RUsuario.idUsuarios,t.fecha, "
+	 		+ " r.nombre_usuario"
+			 +" FROM TbHistorial  AS t"
+			 +" INNER JOIN RUsuario AS  r ON r.idUsuarios = t.RUsuario.idUsuarios").getResultList();
 	 
 	 em.getTransaction().commit();
 	 
@@ -30,6 +35,33 @@ public class HistoryDao {
 		// TODO: handle exception
 	System.out.println("saludos"+e);
 	}
-	return listaCl;
+	return listah;
+	}
+	
+	public void agregarD(TbHistorial h) {
+		EntityManager em;
+		EntityManagerFactory emf;
+		emf= Persistence.createEntityManagerFactory("Jonathan_login");
+	     em=emf.createEntityManager();
+		
+	     em.getTransaction().begin();
+			em.persist(h);
+			em.flush();
+			em.getTransaction().commit();
+	
+	}
+	
+	public void EliminarD(TbHistorial h) {
+		EntityManager em;
+		EntityManagerFactory emf;
+		emf= Persistence.createEntityManagerFactory("Jonathan_Crud");
+		   em=emf.createEntityManager();
+		   h= em.getReference(TbHistorial.class,h.getIdHistorial());
+		   em.getTransaction().begin();
+		em.remove(h);
+		
+		em.flush();
+
+		em.getTransaction().commit();
 	}
 }
